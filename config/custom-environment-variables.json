@@ -1,0 +1,4 @@
+{
+  "db": "pingr_db",
+  "jwtPrivateKey": "pingr_jwtPrivateKey"
+}

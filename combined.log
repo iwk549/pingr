@@ -1,0 +1,236 @@
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Joi.validate is not a function"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Joi.validate is not a function"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"userSchema.validate is not a function"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cannot read property 'email' of null"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cannot read property 'email' of null"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"username is not defined"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"username is not defined"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"username is not defined"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"username is not defined"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"username is not defined"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Joi.validate is not a function"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"validateMessage is not a function"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cannot read property '0' of undefined"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cast to date failed for value \"{ '$currentDate': { '$type': 'timestamp' } }\" at path \"lastActive\""}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cast to Number failed for value \"{ '$currentDate': { '$type': 'timestamp' } }\" at path \"lastActive\""}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cast to string failed for value \"{ '$currentDate': { '$type': 'timestamp' } }\" at path \"lastActive\""}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"user.save is not a function"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cast to [string] failed for value \"[{\"$push\":{\"title\":null,\"text\":\"hello world\"}}]\" at path \"messages\""}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cast to string failed for value \"{ title: null, text: 'hello world' }\" at path \"messages\""}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"The dollar ($) prefixed field '$currentDate' in 'messages..time.$currentDate' is not valid for storage."}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"The dollar ($) prefixed field '$currentDate' in 'messages..time.$currentDate' is not valid for storage."}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"The dollar ($) prefixed field '$currentDate' in 'messages..time.$currentDate' is not valid for storage."}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cast to date failed for value \"{ '$currentDate': { '$type': 'timestamp' } }\" at path \"lastActive\""}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cast to date failed for value \"{ '$currentDate': { '$type': 'timestamp' } }\" at path \"lastActive\""}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"$and must be an array"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cannot read property 'email' of null"}
+{"level":"error","message":"Cannot read property 'email' of null"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cannot read property 'email' of null"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cast to ObjectId failed for value \"{ _id: undefined }\" at path \"friends\""}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cast to ObjectId failed for value \"{ _id: undefined, confirmed: false }\" at path \"friends\""}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cast to ObjectId failed for value \"{ _id: undefined, confirmed: false }\" at path \"friends\""}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cast to ObjectId failed for value \"{ _id: undefined, confirmed: false }\" at path \"friends\""}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Unexpected token } in JSON at position 69"}
+{"level":"error","message":"Cannot read property '_id' of undefined"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cannot read property '_id' of undefined"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cannot read property '_id' of undefined"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cannot read property '_id' of undefined"}
+{"level":"error","message":"Cannot read property '_id' of undefined"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Invalid status code: {\n  friends: [],\n  messages: [],\n  _id: 5f8f5ce0838d27745cc0d554,\n  username: 'test1',\n  email: 'test1@test.com',\n  password: '$2b$10$Vf6G5yzEW82IoGDcs9S2VesJXnASpiMXIASkmfv2jY8alpFxyAMz2',\n  __v: 0\n}"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Converting circular structure to JSON\n    --> starting at object with constructor 'NativeTopology'\n    |     property 's' -> object with constructor 'Object'\n    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'\n    --- property 'topology' closes the circle"}
+{"level":"error","message":"Converting circular structure to JSON\n    --> starting at object with constructor 'NativeTopology'\n    |     property 's' -> object with constructor 'Object'\n    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'\n    --- property 'topology' closes the circle"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"req.cookies is not a function"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cannot set headers after they are sent to the client"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"error","message":"Cannot set headers after they are sent to the client"}
+{"level":"error","message":"Cannot set headers after they are sent to the client"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
+{"level":"info","message":"Listening on port 3001"}
