@@ -58,7 +58,7 @@ function validatePassword(password) {
 
 function validateMessage(message) {
   const messageSchema = Joi.object({
-    title: Joi.string().optional().allow(null),
+    title: Joi.string().optional().allow(""),
     text: Joi.string().required(),
   });
   return messageSchema.validate(message);

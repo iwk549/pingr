@@ -10,6 +10,7 @@ const logger = require("../startup/logging")();
 const bcrypt = require("bcrypt");
 const auth = require("../middleware/auth");
 const _ = require("lodash");
+const { setCookies } = require("../utils/cookies");
 
 // Create new user
 router.post("/", async (req, res) => {
@@ -35,13 +36,8 @@ router.post("/", async (req, res) => {
   const result = await user.save();
 
   const token = user.generateAuthToken();
-  let cookieOptions = {
-    expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
-    httpOnly: true,
-  };
-  if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
+  setCookies(res, token);
   res
-    .cookie("jwt", token, cookieOptions)
     .header("x-auth-token", token)
     .header("access-control-expose-headers", "x-auth-token")
     .send(_.pick(result, ["username", "email"]));
@@ -66,6 +62,7 @@ router.post("/selfmessage", auth, async (req, res) => {
           title: req.body.title,
           text: req.body.text,
           from: req.user._id,
+          fromName: req.user.username,
           time: timestamp,
           _id: messageCount.messages.length + "a",
         },
@@ -96,6 +93,7 @@ router.post("/message/:id", auth, async (req, res) => {
           title: req.body.title,
           text: req.body.text,
           from: req.user._id,
+          fromName: req.user.username,
           time: timestamp,
           _id: messageCount.messages.length + "a",
         },
@@ -105,11 +103,29 @@ router.post("/message/:id", auth, async (req, res) => {
   res.send(user);
 });
 
-// Add friend by email
-router.post("/friends/add/:email", auth, async (req, res) => {
+// Add friend by username
+router.post("/friends/add/:username", auth, async (req, res) => {
   const timestamp = new Date().getTime();
-  const friend = await User.findOne({ email: req.params.email });
+  const friend = await User.findOne({ username: req.params.username });
   if (!friend) return res.status(404).send("User was not found.");
+  const user = await User.findById(req.user._id);
+  if (user.username === req.params.username)
+    return res.status(400).send("You cannot be your own friend.");
+  let exists = false;
+  let existsMessage = "";
+  user.friends.forEach((f) => {
+    if (f.username === req.params.username) {
+      exists = true;
+      existsMessage =
+        !f.confirmed && f.requestor
+          ? `You already have a friend request pending with ${req.params.username}.`
+          : !f.confirmed && !f.requestor
+          ? `${req.params.username} has already sent you a friend request. See below to confirm.`
+          : `You are already friends with ${req.params.username}.`;
+    }
+  });
+
+  if (exists) return res.status(400).send(existsMessage);
 
   await User.updateOne(
     { _id: req.user._id },
@@ -118,6 +134,7 @@ router.post("/friends/add/:email", auth, async (req, res) => {
       $push: {
         friends: {
           _id: friend._id.toString(),
+          username: friend.username,
           confirmed: false,
           requestor: true,
         },
@@ -126,10 +143,15 @@ router.post("/friends/add/:email", auth, async (req, res) => {
   );
 
   const result = await User.updateOne(
-    { email: req.params.email },
+    { username: req.params.username },
     {
       $push: {
-        friends: { _id: req.user._id, confirmed: false, requestor: false },
+        friends: {
+          _id: req.user._id,
+          username: req.user.username,
+          confirmed: false,
+          requestor: false,
+        },
       },
     }
   );
@@ -169,10 +191,11 @@ router.delete("/mymessages/:id/:timestamp", auth, async (req, res) => {
   res.send(result);
 });
 
+// get all your messages
 router.get("/", auth, async (req, res) => {
   const user = await User.findById(req.user._id);
   delete user.password;
-  res.send(_.pick(user, ["messages", "friends"]));
+  res.send(_.pick(user, ["messages", "friends", "_id", "username"]));
 });
 
 module.exports = router;

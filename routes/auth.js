@@ -10,6 +10,7 @@ const logger = require("../startup/logging")();
 const auth = require("../middleware/auth");
 const Joi = require("joi");
 const bcrypt = require("bcrypt");
+const { setCookies } = require("../utils/cookies");
 
 router.post("/", async (req, res) => {
   const ex = validateLogin(req.body);
@@ -22,21 +23,20 @@ router.post("/", async (req, res) => {
   );
   if (!validPassword) res.status(400).send("Invalid email or password.");
   const token = existingUser.generateAuthToken();
-  let cookieOptions = {
-    expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
-    httpOnly: true,
-  };
-  if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
-  res.cookie("jwt", token, cookieOptions).send("Logged In");
+  setCookies(res, token);
+  res.send("Logged In");
 });
 
 router.post("/logout", async (req, res) => {
+  const cookieExp = new Date(Date.now());
   let cookieOptions = {
-    expires: new Date(Date.now()),
+    expires: cookieExp,
     httpOnly: true,
   };
   if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
-  res.cookie("jwt", "", cookieOptions).send("Logged Out");
+  res.cookie("loggedIn", "", { expires: cookieExp });
+  res.cookie("jwt", "", cookieOptions);
+  res.send("Logged Out");
 });
 
 router.get("/", auth, (req, res) => {
