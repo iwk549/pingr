@@ -1,5 +1,7 @@
 {
   "db": "pingr_db",
   "jwtPrivateKey": "pingr_jwtPrivateKey",
-  "origin": "pingr_origin"
+  "origin": "pingr_origin",
+  "algorithm": "pingr_algorithm",
+  "algoKey": "pingr_algoKey"
 }

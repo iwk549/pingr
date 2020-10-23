@@ -55,3 +55,11 @@
 {"level":"error","message":"Cannot set headers after they are sent to the client"}
 {"level":"error","message":"Cannot set headers after they are sent to the client"}
 {"level":"error","message":"Cannot set headers after they are sent to the client"}
+{"level":"error","message":"Cannot apply $pull to a non-array value"}
+{"level":"error","message":"Cannot set headers after they are sent to the client"}
+{"level":"error","message":"Cannot set headers after they are sent to the client"}
+{"level":"error","message":"Invalid key length"}
+{"level":"error","message":"Invalid key length"}
+{"level":"error","message":"Invalid IV length"}
+{"level":"error","message":"Invalid IV length"}
+{"level":"error","message":"The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined"}

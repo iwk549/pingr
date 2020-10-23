@@ -11,6 +11,7 @@ const bcrypt = require("bcrypt");
 const auth = require("../middleware/auth");
 const _ = require("lodash");
 const { setCookies } = require("../utils/cookies");
+const { encrypt, decrypt } = require("../utils/encryption");
 
 // Create new user
 router.post("/", async (req, res) => {
@@ -20,13 +21,9 @@ router.post("/", async (req, res) => {
   const pw = validatePassword(req.body.password);
   if (pw.error) return res.status(400).send(pw.error.details[0].message);
 
-  const existingUser = await User.findOne({
-    $or: [{ email: req.body.email }, { username: req.body.username }],
-  });
+  const existingUser = await User.findOne({ username: req.body.username });
   if (existingUser) {
-    if (existingUser.email === req.body.email)
-      return res.status(400).send("Email is already registered.");
-    else if (existingUser.username === req.body.username)
+    if (existingUser.username === req.body.username)
       return res.status(400).send("Username is already in use.");
   }
 
@@ -37,10 +34,7 @@ router.post("/", async (req, res) => {
 
   const token = user.generateAuthToken();
   setCookies(res, token);
-  res
-    .header("x-auth-token", token)
-    .header("access-control-expose-headers", "x-auth-token")
-    .send(_.pick(result, ["username", "email"]));
+  res.send(_.pick(result, ["username"]));
 });
 
 // Send message to yourself
@@ -48,6 +42,7 @@ router.post("/selfmessage", auth, async (req, res) => {
   const ex = validateMessage(req.body);
   if (ex.error) return res.status(400).send(ex.error.details[0].message);
   req.body.title = req.body.title ? req.body.title : null;
+  req.body.text = encrypt(req.body.text);
   const timestamp = new Date().getTime();
   const messageCount = await User.findById(req.user._id);
 
@@ -77,6 +72,7 @@ router.post("/message/:id", auth, async (req, res) => {
   const ex = validateMessage(req.body);
   if (ex.error) return res.status(400).send(ex.error.details[0].message);
   req.body.title = req.body.title ? req.body.title : null;
+  req.body.text = encrypt(req.body.text);
   const timestamp = new Date().getTime();
   const messageCount = await User.findById(req.user._id);
 
@@ -171,6 +167,19 @@ router.put("/friends/confirm/:id", auth, async (req, res) => {
   res.send(result);
 });
 
+// Reject Friend Request or Remove Friend
+router.delete("/friends/delete/:id", auth, async (req, res) => {
+  await User.updateOne(
+    { _id: req.params.id },
+    { $pull: { friends: { _id: req.user._id } } }
+  );
+  const result = await User.updateOne(
+    { _id: req.user._id },
+    { $pull: { friends: { _id: req.params.id } } }
+  );
+  res.send(result);
+});
+
 // Delete message by id & timestamp
 router.delete("/mymessages/:id/:timestamp", auth, async (req, res) => {
   const timestamp = new Date().getTime();
@@ -194,6 +203,9 @@ router.delete("/mymessages/:id/:timestamp", auth, async (req, res) => {
 // get all your messages
 router.get("/", auth, async (req, res) => {
   const user = await User.findById(req.user._id);
+  user.messages.forEach((m) => {
+    m.text = decrypt(m.text);
+  });
   delete user.password;
   res.send(_.pick(user, ["messages", "friends", "_id", "username"]));
 });

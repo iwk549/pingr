@@ -17,7 +17,6 @@ const pwComplexityOptions = {
 
 const userMongooseSchema = new mongoose.Schema({
   username: { type: String, required: true, minLength: 5, maxLength: 100 },
-  email: { type: String, required: true, minLength: 5, maxLength: 255 },
   password: { type: String, required: true, minLength: 8, maxLength: 1024 },
   friends: [{ type: Object, required: false }],
   messages: [{ type: Object, required: false }],
@@ -29,7 +28,6 @@ userMongooseSchema.methods.generateAuthToken = function () {
     {
       _id: this._id,
       username: this.username,
-      email: this.email,
     },
     config.get("jwtPrivateKey")
   );
@@ -41,7 +39,6 @@ const User = mongoose.model("User", userMongooseSchema);
 const userSchema = Joi.object({
   _id: Joi.objectID(),
   username: Joi.string().min(5).max(100).required(),
-  email: Joi.string().min(5).max(255).required(),
   password: Joi.string().min(8).max(100).required(),
   friends: Joi.array().items(Joi.object()).optional().allow(null),
   messages: Joi.array().items(Joi.object()).optional().allow(null),
