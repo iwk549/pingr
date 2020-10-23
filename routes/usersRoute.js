@@ -41,7 +41,6 @@ router.post("/", async (req, res) => {
 router.post("/selfmessage", auth, async (req, res) => {
   const ex = validateMessage(req.body);
   if (ex.error) return res.status(400).send(ex.error.details[0].message);
-  req.body.title = req.body.title ? req.body.title : null;
   req.body.text = encrypt(req.body.text);
   const timestamp = new Date().getTime();
   const messageCount = await User.findById(req.user._id);
@@ -54,10 +53,10 @@ router.post("/selfmessage", auth, async (req, res) => {
       },
       $push: {
         messages: {
-          title: req.body.title,
           text: req.body.text,
           from: req.user._id,
           fromName: req.user.username,
+          to: req.user._id,
           time: timestamp,
           _id: messageCount.messages.length + "a",
         },
@@ -71,14 +70,28 @@ router.post("/selfmessage", auth, async (req, res) => {
 router.post("/message/:id", auth, async (req, res) => {
   const ex = validateMessage(req.body);
   if (ex.error) return res.status(400).send(ex.error.details[0].message);
-  req.body.title = req.body.title ? req.body.title : null;
   req.body.text = encrypt(req.body.text);
   const timestamp = new Date().getTime();
   const messageCount = await User.findById(req.user._id);
+  const recipient = await User.findById(req.params.id);
+  if (!recipient) return res.status(404).send("Recipient does not exist.");
 
   await User.updateOne(
     { _id: req.user._id },
-    { $set: { lastActive: timestamp } }
+    {
+      $set: { lastActive: timestamp },
+      $push: {
+        messages: {
+          text: req.body.text,
+          from: req.user._id,
+          fromName: req.user.username,
+          to: req.params.id,
+          toName: recipient.username,
+          time: timestamp,
+          _id: messageCount.messages.length + "a",
+        },
+      },
+    }
   );
 
   const user = await User.updateOne(
@@ -86,10 +99,11 @@ router.post("/message/:id", auth, async (req, res) => {
     {
       $push: {
         messages: {
-          title: req.body.title,
           text: req.body.text,
           from: req.user._id,
           fromName: req.user.username,
+          to: req.params.id,
+          toName: recipient.username,
           time: timestamp,
           _id: messageCount.messages.length + "a",
         },
@@ -200,8 +214,13 @@ router.delete("/mymessages/:id/:timestamp", auth, async (req, res) => {
   res.send(result);
 });
 
-// get all your messages
+// get all your messages - delete all messages over 30 days old
 router.get("/", auth, async (req, res) => {
+  const deleteStamp = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).getTime();
+  await User.updateOne(
+    { _id: req.user._id },
+    { $pull: { messages: { time: { $lt: deleteStamp } } } }
+  );
   const user = await User.findById(req.user._id);
   user.messages.forEach((m) => {
     m.text = decrypt(m.text);
