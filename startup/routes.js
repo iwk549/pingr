@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 const config = require("config");
 const users = require("../routes/usersRoute");
 const auth = require("../routes/auth");
+const version = require("../routes/version");
 
 const errors = require("../middleware/errors");
 
@@ -31,6 +32,7 @@ module.exports = function (app) {
   // Routers
   app.use("/api/users", users);
   app.use("/api/auth", auth);
+  app.use("/api/version", version);
 
   // Error handling
   app.use(errors);

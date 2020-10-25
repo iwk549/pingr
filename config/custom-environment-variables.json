@@ -3,5 +3,6 @@
   "jwtPrivateKey": "pingr_jwtPrivateKey",
   "origin": "pingr_origin",
   "algorithm": "pingr_algorithm",
-  "algoKey": "pingr_algoKey"
+  "algoKey": "pingr_algoKey",
+  "version": "pingr_version"
 }

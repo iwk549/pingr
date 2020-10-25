@@ -64,3 +64,4 @@
 {"level":"error","message":"Invalid IV length"}
 {"level":"error","message":"The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received undefined"}
 {"level":"error","message":"now is not defined"}
+{"level":"error","message":"Version validation failed: fulle: Path `fulle` is required."}
